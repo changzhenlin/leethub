@@ -5,14 +5,14 @@
  */
 
 
-
+const map:{[key: string]: string}  = {
+  ')': '(',
+  ']': '[',
+  '}': '{',
+};
 // @lc code=start
 function isValid(s: string): boolean {
-  const map:{[key: string]: string}  = {
-    ')': '(',
-    ']': '[',
-    '}': '{',
-  };
+  
   let arr = s.split('');
   if (arr.length % 2 !== 0){
     return false;
