@@ -10,6 +10,7 @@ function isPalindrome(x: number): boolean {
     return false;
   }
   let arr = x.toString().split('');
+  // 数组深拷贝
   let arrfor = arr.slice(0);
   let reverseArr = arr.reverse();
   if (arrfor.join('') === reverseArr.join('')) {
