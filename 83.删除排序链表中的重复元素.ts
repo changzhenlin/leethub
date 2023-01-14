@@ -21,11 +21,14 @@ function deleteDuplicates(head: ListNode | null): ListNode | null {
   if (head === null) {
     return head;
   }
+  // 1. 递归
   let cur = head;
   while (cur.next !== null) {
     if (cur.val === cur.next.val) {
+      // 删除重复节点
       cur.next = cur.next.next;
     } else {
+      // 指针后移
       cur = cur.next;
     }
   }
