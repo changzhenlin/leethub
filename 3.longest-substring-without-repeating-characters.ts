@@ -22,19 +22,19 @@ function lengthOfLongestSubstring(s: string): number {
   // return max;
 
   // 2. 滑动窗口
-  // let max = 0;
-  // let i = 0;
-  // let j = 0;
-  // let set = new Set();
-  // while (i < s.length && j < s.length) {
-  //   if (!set.has(s[j])) {
-  //     set.add(s[j++]);
-  //     max = Math.max(max, j - i);
-  //   } else {
-  //     set.delete(s[i++]);
-  //   }
-  // }
-  // return max;
+  let max = 0;
+  let i = 0;
+  let j = 0;
+  let set = new Set();
+  while (i < s.length && j < s.length) {
+    if (!set.has(s[j])) {
+      set.add(s[j++]);
+      max = Math.max(max, j - i);
+    } else {
+      set.delete(s[i++]);
+    }
+  }
+  return max;
 
   // 3. 优化的滑动窗口
   // let max = 0;
@@ -52,15 +52,15 @@ function lengthOfLongestSubstring(s: string): number {
   //   }
   // }
   // return max;
-  let max = 0;
-  for (let i = 0; i < s.length; i++) {
-    for (let j = i + 1; j <= s.length; j++) {
-      if (allUnique(s, i, j)) {
-        max = Math.max(max, j - i);
-      }
-    }
-  }
-  return max;
+  // let max = 0;
+  // for (let i = 0; i < s.length; i++) {
+  //   for (let j = i + 1; j <= s.length; j++) {
+  //     if (allUnique(s, i, j)) {
+  //       max = Math.max(max, j - i);
+  //     }
+  //   }
+  // }
+  // return max;
 };
 function allUnique(s: string, start: number, end: number): boolean {
   let set = new Set();
