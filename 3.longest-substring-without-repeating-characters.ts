@@ -26,11 +26,15 @@ function lengthOfLongestSubstring(s: string): number {
   let i = 0;
   let j = 0;
   let set = new Set();
+  // 当 i 和 j 指针重合时，滑动窗口为空，此时可以增加 j 指针扩大窗口 1。
   while (i < s.length && j < s.length) {
+    // 将 s[j] 添加到滑动窗口中
     if (!set.has(s[j])) {
       set.add(s[j++]);
+      // 不断更新最大值
       max = Math.max(max, j - i);
     } else {
+      // 如果 s[j] 已经存在于滑动窗口中，将 s[i] 从滑动窗口中删除
       set.delete(s[i++]);
     }
   }
