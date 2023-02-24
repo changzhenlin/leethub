@@ -9,12 +9,14 @@ function isHappy(n: number): boolean {
   let slow = n;
   let fast = n;
   do {
+    // 快指针走两步
     slow = squareSum(slow);
     fast = squareSum(squareSum(fast));
   } while (slow !== fast);
   return slow === 1;
 
 };
+// 计算一个数的每一位的平方和
 function squareSum(n: number): number {
   let sum = 0;
   while (n > 0) {
