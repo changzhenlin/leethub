@@ -20,14 +20,17 @@
  */
 
 function inorderTraversal(root: TreeNode | null): number[] {
+  // 中序遍历：左根右
   const res: number[] = [];
   const stack: TreeNode[] = [];
   let p = root;
   while (p || stack.length) {
+    // 左子树入栈
     while (p) {
       stack.push(p);
       p = p.left;
     }
+    // 根节点出栈
     const n = stack.pop();
     res.push(n.val);
     p = n.right;
