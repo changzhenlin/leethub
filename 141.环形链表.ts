@@ -18,9 +18,11 @@
  */
 
 function hasCycle(head): boolean {
+  // 快慢指针
   if (!head || !head.next) return false;
   let slow = head;
   let fast = head.next;
+  // 快指针走到头，说明没有环
   while (slow !== fast) {
     if (!fast || !fast.next) return false;
     slow = slow.next;
